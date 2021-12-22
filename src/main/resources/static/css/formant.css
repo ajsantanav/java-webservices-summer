@@ -1,0 +1,41 @@
+
+*{
+    font-family: verdana;
+}
+
+.center {
+    text-align: center;
+}
+
+.body{
+    width: 430px;
+    height: 710px;
+}
+
+.small-box {
+    width:130px;
+    height: 115px;
+    border: 1px solid blue;
+    padding-top: 20px;
+    margin: 1px;
+    text-align: center;
+    font-size: 60pt;
+    float: left;
+}
+
+#btn-clear {
+    margin-top: .5in;
+    width: 1.5in;
+}
+
+#message {
+    padding-top; .15in;
+    width: 100%;
+    background-color: silver;
+    float: left;
+   height: .35in;
+}
+
+.winner {
+    color: blue;
+}

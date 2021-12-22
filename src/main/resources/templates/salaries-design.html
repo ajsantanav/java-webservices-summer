@@ -1,0 +1,116 @@
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>123 Dynamic (Santana)</title>
+    <link rel="stylesheet" th:href="@{/css/salary.css}"/>
+</head>
+<body>
+
+<div class="parent">
+
+
+    <div class="buttonGroup">
+        <form th:object="${salaryForm}" method="get" action="salaries">
+            <select th:field="*{displayMode}">
+                <optgroup label="Highlight Salaries Between">
+                <option value="20k">5k and 20k</option>
+                <option value="50k">20k and 50k</option>
+                <option value="100k">50k and 100k</option>
+                <option value="200k">100k and 200k</option>
+                <option value="300k">200k and 300k</option>
+                <option value="500k">300k and 500k</option>
+                <option value="none">None</option>
+                </optgroup>
+            </select>
+            <input name="process" type="submit"/>
+
+        </form>
+
+    </div>
+
+    <div class="columns">
+        <table class="salary">
+            <caption>Single(s)</caption>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>salary</th>
+                <th>status</th>
+                <th>%</th>
+                <th>$</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <tr th:each="x:${singleList}">
+                <td th:text="${x.id}">nnnnnn</td>
+                <td th:text="${x.salary}">nnnnnn</td>
+                <td th:text="${x.status}">nnnnnn</td>
+                <td th:text="${x.taxOwed}">nnnnnn</td>
+                <td th:text="${x.amountOwed}">nnnnnn</td>
+
+
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="columns">
+        <table class="salary">
+            <caption>Married Filing jointly (mfj)</caption>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>salary</th>
+                <th>status</th>
+                <th>%</th>
+                <th>$</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="x:${mfjList}">
+                <td th:text="${x.id}">nnnnnn</td>
+                <td th:text="${x.salary}">nnnnnn</td>
+                <td th:text="${x.status}">nnnnnn</td>
+                <td th:text="${x.taxOwed}">nnnnnn</td>
+                <td th:text="${x.amountOwed}">nnnnnn</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="columns">
+        <table class="salary">
+            <caption>Head of Household (hh)</caption>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>salary</th>
+                <th>status</th>
+                <th>%</th>
+                <th>$</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="x:${hhList}">
+                <td th:text="${x.id}">nnnnnn</td>
+                <td th:text="${x.salary}">nnnnnn</td>
+                <td th:text="${x.status}">nnnnnn</td>
+                <td th:text="${x.taxOwed}">nnnnnn</td>
+                <td th:text="${x.amountOwed}">nnnnnn</td>
+
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+</body>
+</html>

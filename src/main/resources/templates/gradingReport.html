@@ -1,0 +1,83 @@
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ABC Dynamic</title>
+    <link th:href="@{css/grading.css}" rel="stylesheet" /></head>
+<body>
+
+<div class="body">
+    <table class="students">
+        <caption>Grading Report</caption>
+        <thead>
+            <tr>
+                <th class="center" colspan="7">Exams</th>
+            </tr>
+            <tr>
+                <th class="center" colspan="7">
+                    Letter Grade:
+                    <a href="./grades?letterGrade=All">All</a> &nbsp; &nbsp; &nbsp;
+                    <a href="./grades?letterGrade=A">A</a>
+                    <a href="./grades?letterGrade=A-">A-</a>
+                    <a href="./grades?letterGrade=B%2B">B+</a>
+                    <a href="./grades?letterGrade=B">B</a>
+                    <a href="./grades?letterGrade=B-">B-</a>
+                    <a href="./grades?letterGrade=C%2B">C+</a>
+                    <a href="./grades?letterGrade=C">C</a>
+                    <a href="./grades?letterGrade=C-">C-</a>
+                    <a href="./grades?letterGrade=D">D</a>
+                    <a href="./grades?letterGrade=F">F</a>
+                </th>
+            </tr>
+            <tr>
+                <th rowspan="1">id</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>status</th>
+            </tr>
+            </thead>
+        <tbody>
+
+        <tr th:each="x:${grades}">
+            <td th:text="${x.id}" >9999</td>
+            <td th:text="${x.scores[0]}">one</td>
+            <td th:text="${x.scores[1]}">two</td>
+            <td th:text="${x.scores[2]}">three</td>
+            <td th:text="${x.scores[3]}">four</td>
+            <td th:text="${x.scores[4]}">five</td>
+            <td><span th:text="${x.letterGrade}" class="letterGrade">A+</span>,
+                <span th:text="${x.gpa}" class="gpa">4.0</span>,
+                <span th:text="${x.averageGrade}" class="score">97.31</span>
+            </td>
+        </tr>
+
+
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>count</th>
+            <th>average</th>
+            <th>max</th>
+            <th>min</th>
+            <th>sum</th>
+            <th>avg &gt; 90</th>
+            <th>avg &lt; 70</th>
+        </tr>
+
+        <tr>
+            <td>9999</td>
+            <td>9999</td>
+            <td>9999</td>
+            <td>9999</td>
+            <td>9999</td>
+            <td>9999</td>
+            <td>9999</td>
+        </tr>
+        </tfoot>
+    </table>
+
+</div>
+</body>
+</html>

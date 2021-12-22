@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ABC Dynamic</title>
+    <link th:href="@{/css/abc.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="abcParent">
+    <h1>ABC-Dynamic</h1>
+
+    <div th:each="x:${alphabets}" th:class="${cssClass}" th:classappend="${x.htmlClass}">
+        <span th:text="${x.letter}"/>
+        <div th:text="${x.number}" class="counter"></div>
+    </div>
+    <div class="buttonGroup">
+        <form th:object="${abcForm}" method="get" action="abcd">
+            <select th:field="*{displayMode}" >
+                <optgroup label="In class">
+                <option value="all">Show All</option>
+                <option value="su">Show only Uppercase</option>
+                <option value="sl">Show only Lowercase</option>
+                </optgroup>
+                <optgroup label="Exam Portion">
+                    <option value="rall">(R) Show All</option>
+                    <option value="rsu">(R) Show only Uppercase</option>
+                    <option value="rsl">(R) Show only Lowercase</option>
+                </optgroup>
+            </select>
+            <input name="process" type="submit"/>
+
+        </form>
+
+        time stamp <span th:text="${abcForm.message}"/>
+    </div>
+</div>
+</body>
+</html>
